@@ -1,0 +1,33 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" encoding="utf-8" #>
+<#@ assembly name="System.Xml"#>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Data" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.IO" #>
+//This is an auto-generated file and shouldn't be checked-in
+using Microsoft.AspNetCore.Mvc;
+
+namespace ApiGenerator.Controllers
+{
+
+<#
+    XmlDocument document= new XmlDocument();
+    document.Load(this.Host.ResolvePath("Controllers.config"));
+
+    foreach(XmlNode node in document.SelectNodes("//domainObjects/domainObject"))
+    {
+        string name = node.Attributes["Name"].Value;
+
+#>
+	[ApiController]
+	[Route("api/v1/<#= name #>")]
+	public partial class <#= name #>Controller: ControllerBase
+	{
+    }
+<#
+    }
+ #>
+
+}
