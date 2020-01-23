@@ -9,25 +9,61 @@
 //This is an auto-generated file and shouldn't be checked-in
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiGenerator.Controllers
-{
-
-<#
+<# 
     XmlDocument document= new XmlDocument();
     document.Load(this.Host.ResolvePath("Controllers.config"));
+#>
 
+namespace ApiGenerator.Controllers
+{
+    using System.Threading.Tasks;
+    using System.Collections.Generic;
+    using Models;
+
+<#
     foreach(XmlNode node in document.SelectNodes("//domainObjects/domainObject"))
     {
         string name = node.Attributes["Name"].Value;
-
+        var fields = node.SelectNodes("//fields/field");
 #>
 	[ApiController]
-	[Route("api/v1/<#= name #>")]
+    [Route("[controller]")]
 	public partial class <#= name #>Controller: ControllerBase
 	{
+        [HttpGet]
+        public async Task<IEnumerable<<#= name#>Dto>> Get()
+        {
+            await Task.Yield();
+            return new List<<#= name#>Dto>();
+        }
     }
 <#
     }
- #>
+#>
+}
 
+namespace ApiGenerator.Models
+{
+    using System;
+
+<#
+    foreach(XmlNode node in document.SelectNodes("//domainObjects/domainObject"))
+    {
+        string name = node.Attributes["Name"].Value;
+        var fields = node.ChildNodes;
+#>
+	public partial class <#= name #>Dto
+	{
+<#
+        foreach(XmlNode field in fields)
+        {
+#>
+        public <#= field.Attributes["Type"].Value #> <#= field.Attributes["Name"].Value #>;
+<#            
+        }
+#>
+    }
+<#
+    }
+#>
 }

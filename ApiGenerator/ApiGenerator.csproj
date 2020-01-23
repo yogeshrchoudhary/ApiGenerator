@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="autogen\ControllerGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ControllerGenerator.cs</LastGenOutput>
@@ -22,6 +27,10 @@
       <DependentUpon>ControllerGenerator.tt</DependentUpon>
     </Compile>
   </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="&quot;$(DevEnvDir)TextTransform.exe&quot; -out &quot;$(ProjectDir)/autogen/ControllerGenerator.cs&quot; &quot;$(ProjectDir)/autogen/ControllerGenerator.tt&quot;" />
+  </Target>
 
 
 </Project>
