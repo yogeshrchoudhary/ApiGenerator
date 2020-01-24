@@ -16,6 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{67981E07
 		tools\Microsoft.VisualStudio.TextTemplating.VSHost.15.0.dll = tools\Microsoft.VisualStudio.TextTemplating.VSHost.15.0.dll
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA5FB1D1-1515-4B08-B7AF-4302FFABB90D}"
+	ProjectSection(SolutionItems) = preProject
+		Research notes.md = Research notes.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
