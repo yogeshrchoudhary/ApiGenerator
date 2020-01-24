@@ -5,6 +5,17 @@ VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiGenerator", "ApiGenerator\ApiGenerator.csproj", "{2791302E-D2AD-449F-B06E-2364169F4E44}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{67981E07-AEAD-443F-A407-860483A783B1}"
+	ProjectSection(SolutionItems) = preProject
+		tools\Microsoft.TextTemplating.Build.Tasks.dll = tools\Microsoft.TextTemplating.Build.Tasks.dll
+		tools\Microsoft.TextTemplating.targets = tools\Microsoft.TextTemplating.targets
+		tools\Microsoft.VisualStudio.TextTemplating.15.0.dll = tools\Microsoft.VisualStudio.TextTemplating.15.0.dll
+		tools\Microsoft.VisualStudio.TextTemplating.Interfaces.15.0.dll = tools\Microsoft.VisualStudio.TextTemplating.Interfaces.15.0.dll
+		tools\Microsoft.VisualStudio.TextTemplating.Modeling.15.0.dll = tools\Microsoft.VisualStudio.TextTemplating.Modeling.15.0.dll
+		tools\Microsoft.VisualStudio.TextTemplating.Sdk.Host.15.0.dll = tools\Microsoft.VisualStudio.TextTemplating.Sdk.Host.15.0.dll
+		tools\Microsoft.VisualStudio.TextTemplating.VSHost.15.0.dll = tools\Microsoft.VisualStudio.TextTemplating.VSHost.15.0.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

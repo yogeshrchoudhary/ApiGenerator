@@ -26,16 +26,8 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="autogen\ControllerGenerator.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>ControllerGenerator.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v16.0\TextTemplating\Microsoft.TextTemplating.targets" />
-  <Target Name="PreBuild" BeforeTargets="BeforeBuild" >
+  <Import Project="$(SolutionDir)\tools\Microsoft.TextTemplating.targets" />
+  <Target Name="PreBuild" BeforeTargets="BeforeBuild">
     <CallTarget Targets="TransformDuringBuild" />
   </Target>
   
