@@ -1,7 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
+    <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
+    <TransformOnBuild>true</TransformOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,9 +34,15 @@
     </Compile>
   </ItemGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="&quot;$(DevEnvDir)TextTransform.exe&quot; -out &quot;$(ProjectDir)/autogen/ControllerGenerator.cs&quot; &quot;$(ProjectDir)/autogen/ControllerGenerator.tt&quot;" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v16.0\TextTemplating\Microsoft.TextTemplating.targets" />
+  <Target Name="PreBuild" BeforeTargets="BeforeBuild" >
+    <CallTarget Targets="TransformDuringBuild" />
   </Target>
-
+  
+  <PropertyGroup>
+    <!-- This setting is required to make incremental transformations work. -->
+    <TrackerLogDirectory Condition=" $(TrackerLogDirectory)=='' ">obj\$(Configuration)\tlogs</TrackerLogDirectory>
+  </PropertyGroup>
 
 </Project>
+
