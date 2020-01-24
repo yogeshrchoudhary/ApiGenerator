@@ -26,7 +26,7 @@
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 
-  <Import Project="$(SolutionDir)\tools\Microsoft.TextTemplating.targets" />
+  <Import Project="..\tools\Microsoft.TextTemplating.targets" />
   <Target Name="PreBuild" BeforeTargets="BeforeBuild">
     <CallTarget Targets="TransformDuringBuild" />
   </Target>
