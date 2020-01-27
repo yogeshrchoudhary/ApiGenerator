@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{67981E07
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA5FB1D1-1515-4B08-B7AF-4302FFABB90D}"
 	ProjectSection(SolutionItems) = preProject
+		ADO Pipeline Build.yaml = ADO Pipeline Build.yaml
+		ADO Pipeline Release.yaml = ADO Pipeline Release.yaml
 		Research notes.md = Research notes.md
 	EndProjectSection
 EndProject
